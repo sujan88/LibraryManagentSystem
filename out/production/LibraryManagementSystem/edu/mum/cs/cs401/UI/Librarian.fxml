@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.cs.cs401.controller.LibrarianController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <TabPane prefHeight="396.0" prefWidth="472.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Checkout Book">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="1.0" layoutY="-1.0" prefHeight="473.0" prefWidth="600.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="232.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="381.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="433.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <GridPane>
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="91.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="209.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <TextField fx:id="usernameTextField" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                                                <Button fx:id="searchLibraryMemberbtn" maxWidth="70.0" minWidth="80.0" mnemonicParsing="false" onAction="#searchLibraryMemberAction" prefWidth="70.0" text="ID Member" GridPane.halignment="RIGHT">
+                                                    <GridPane.margin>
+                                                        <Insets right="5.0" />
+                                                    </GridPane.margin>
+                                                </Button>
+                                            </children>
+                                        </GridPane>
+                                        <GridPane GridPane.columnIndex="1">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="90.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="210.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <TextField fx:id="isbnTextField" maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                                                <Button fx:id="searchISBNBtn" maxWidth="70.0" minWidth="80.0" mnemonicParsing="false" onAction="#searchBook" prefWidth="70.0" text="ISBN" GridPane.halignment="RIGHT">
+                                                    <GridPane.margin>
+                                                        <Insets right="5.0" />
+                                                    </GridPane.margin>
+                                                </Button>
+                                            </children>
+                                        </GridPane>
+                                        <TableView fx:id="copyOfBookTable" maxHeight="370.0" maxWidth="290.0" minHeight="370.0" minWidth="290.0" prefHeight="370.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                            <columns>
+                                                <TableColumn fx:id="copyNumberBookCol" minWidth="20.0" prefWidth="145.0" text="Copy Number" />
+                                                <TableColumn fx:id="availableCopyBookBookCol" prefWidth="145.0" text="Available" />
+                                            </columns>
+                                        </TableView>
+                                        <TableView fx:id="memberLibraryTable" maxHeight="370.0" maxWidth="290.0" minHeight="370.0" minWidth="290.0" prefHeight="370.0" prefWidth="290.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                            <columns>
+                                                <TableColumn fx:id="idMemberCol" prefWidth="75.0" text="ID" />
+                                                <TableColumn fx:id="fnameMemberCol" prefWidth="75.0" text="First Name" />
+                                                <TableColumn fx:id="lnameMemberCol" prefWidth="75.0" text="Ladst Name" />
+                                                <TableColumn fx:id="phoneMemberCol" prefWidth="75.0" text="Phone" />
+                                            </columns>
+                                        </TableView>
+                              <Button fx:id="checkoutBtn" mnemonicParsing="false" onAction="#checkoutBookAction" prefWidth="100.0" text="Checkout" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Label fx:id="errorMessageLbl" alignment="TOP_LEFT" contentDisplay="BOTTOM" prefHeight="41.0" prefWidth="297.0" text="" textFill="#f20000" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</GridPane>
